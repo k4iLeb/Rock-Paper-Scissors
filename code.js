@@ -8,6 +8,10 @@ let compScore = 0;
 let rounds = 0;
 const choices = ["rock", "paper", "scissors"];
 
+const button = document.querySelector("button");
+
+button.addEventListener("click", playGame);
+
 // playGame();
 
 function playGame() {
@@ -19,6 +23,9 @@ function playGame() {
   if (userScore > compScore) alert("User WINS!");
   else if (userScore < compScore) alert("Comp WINS!");
   else alert("IT'S A TIE!");
+  rounds = 0;
+  userScore = 0;
+  compScore = 0;
 }
 
 // CREATE round
