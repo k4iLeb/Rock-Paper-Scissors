@@ -8,7 +8,7 @@ let compScore = 0;
 let rounds = 0;
 const choices = ["rock", "paper", "scissors"];
 
-playGame();
+// playGame();
 
 function playGame() {
   // IF rounds = 5:

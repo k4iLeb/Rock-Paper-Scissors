@@ -4,8 +4,16 @@
   padding: 0;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
 h1,
 h4 {
   text-align: center;
-  margin: 25px;
+  margin: 10px;
 }
