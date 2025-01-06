@@ -10,13 +10,13 @@ const choices = ["rock", "paper", "scissors"];
 
 // ========== SELECTORS =========================
 
-const button = document.querySelector("#startGameBtn");
+const button = document.querySelector("#resetGameBtn");
 const btns = document.querySelectorAll(".btns");
 const round = document.querySelector(".rounds");
 const userScoreSpan = document.querySelector("#UserScore");
 const compScoreSpan = document.querySelector("#CompScore");
 
-button.addEventListener("click", playGame);
+button.addEventListener("click", resetGame);
 
 btns.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -24,20 +24,27 @@ btns.forEach((button) => {
   });
 });
 
+function resetGame() {
+  rounds = 0;
+  round.textContent = `Round: ${rounds}`;
+  userScore = 0;
+  userScoreSpan.textContent = userScore;
+  compScore = 0;
+  compScoreSpan.textContent = compScore;
+}
+
 function playGame() {
   // IF rounds = 5:
 
-  // while (rounds < 5) {
-  //   playRound();
-  // }
-
-  // Announce winner
-  if (userScore > compScore) alert("User WINS!");
-  else if (userScore < compScore) alert("Comp WINS!");
-  else alert("IT'S A TIE!");
-  rounds = 0;
-  userScore = 0;
-  compScore = 0;
+  if (rounds === 5) {
+    // Announce winner
+    if (userScore > compScore) alert("User WINS!");
+    else if (userScore < compScore) alert("Comp WINS!");
+    else alert("IT'S A TIE!");
+    rounds = 0;
+    userScore = 0;
+    compScore = 0;
+  }
 }
 
 // CREATE round
@@ -84,24 +91,14 @@ function playRound(userBtnChoice) {
   // END ROUND => rounds ++
   rounds++;
   round.textContent = `Round: ${rounds}`;
-  userScoreSpan.textContent = `User Score: ${userScore}`;
-  compScoreSpan.textContent = `Comp Score: ${compScore}`;
+  userScoreSpan.textContent = userScore;
+  compScoreSpan.textContent = compScore;
   console.log("userChoice: " + userChoice, "UserScore: " + userScore);
   console.log("compChoice: " + compChoice, "CompScore: " + compScore);
   console.log("rounds: " + rounds);
-}
 
-// // GET input from user (PROMPT)
-// function getUserChoice() {
-//   // make it case-insensitive
-//   let answer = prompt("Rock,Paper or Scissors?");
-//   if (!answer || choices.indexOf(answer.toLowerCase()) === -1) {
-//     alert("Please provide a valid choice");
-//     return getUserChoice();
-//   } else {
-//     return answer;
-//   }
-// }
+  playGame();
+}
 
 // GET random input from computer
 function getCompChoice() {
