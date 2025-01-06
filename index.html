@@ -8,8 +8,20 @@
   </head>
   <body>
     <h1>Rock Paper Scissors</h1>
-    <h4>Kindly open the console :)</h4>
-    <button type="button">Play Game!</button>
+    <button id="startGameBtn" type="button">Play Game!</button>
+    <div class="btnContainer">
+      <button class="btns" id="rock">Rock</button>
+      <button class="btns" id="paper">Paper</button>
+      <button class="btns" id="scissors">Scissors</button>
+    </div>
+    <div class="resultsDiv">
+      <h2 class="rounds">Round:</h2>
+      <div class="scoreDiv">
+        <span id="UserScore" class="scoreSpan">UserScore: </span>
+        <span id="CompScore" class="scoreSpan">CompScore: </span>
+      </div>
+    </div>
+    <!-- <h4>Kindly open the console :)</h4> -->
     <script src="./code.js"></script>
   </body>
 </html>
